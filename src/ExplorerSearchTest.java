@@ -64,6 +64,19 @@ public class ExplorerSearchTest {
         assertTrue(movesStrings.contains("1,2"));
     }
 
+    @Test
+    public void testPossibleMovesAllDirectionsBlockedWithRiverAndMountain() {
+        int[][] island = {
+            {3,2,2},
+            {3,0,3},
+            {2,2,3}
+        };
+        int[] pos = {1,1};
+        List<int[]> moves = ExplorerSearch.possibleMoves(island, pos);
+
+        assertEquals(0, moves.size());
+    }
+
     private Set<String> toSet(List<int[]> list) {
         Set<String> set = new HashSet<>();
         for (int[] arr : list) {
