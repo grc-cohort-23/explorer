@@ -15,6 +15,31 @@ public class ExplorerSearchTest {
         assertEquals(14, actual);
     }
 
-    // Add more tests here!
-    // Come up with varied cases
+    @Test
+    public void testExplorerFound() {
+        int[][] island = {
+            {3,3,2,3},
+            {3,2,2,1},
+            {2,2,1,1},
+            {0,1,1,3}
+        };
+        int[] expected = {3,0};
+        assertArrayEquals(expected, ExplorerSearch.findExplorer(island));
+    }
+
+    @Test
+    public void testExplorerNotFound() {
+        int[][] island = {
+            {3,3,2,3},
+            {3,2,2,1},
+            {2,2,1,1},
+            {1,1,1,3}
+        };
+        try {
+            int[] pos = ExplorerSearch.findExplorer(island);
+            fail("IllegalArgumentException was not thrown");
+        } catch (IllegalArgumentException exception) {
+            assertEquals("Explorer not found!", exception.getMessage());
+        }
+    }
 }
