@@ -34,7 +34,15 @@ public class ExplorerSearch {
         // I STRONGLY RECOMMEND testing some helpers you might make too
         return -1;
     }
-    
+
+    /**
+     * Finds all possible moves based on the current position provided.
+     * 
+     * @param island 2D integer array representing an island
+     * @param current Current position being evaluated.
+     * @return possible, a List containing (y,x) positions of possible moves that can be made 
+     *         based on the current position.
+     */
     public static List<int[]> possibleMoves(char[][] island, int[] current) {
         int row = current[0], col = current[1];
         int newRow, newCol;
