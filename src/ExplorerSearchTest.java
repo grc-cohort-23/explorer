@@ -39,7 +39,7 @@ public class ExplorerSearchTest {
             {1,1,1,3}
         };
         try {
-            int[] pos = ExplorerSearch.findExplorer(island);
+            ExplorerSearch.findExplorer(island);
             fail("IllegalArgumentException was not thrown");
         } catch (IllegalArgumentException exception) {
             assertEquals("Explorer not found!", exception.getMessage());
