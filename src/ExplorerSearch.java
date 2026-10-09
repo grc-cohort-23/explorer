@@ -34,6 +34,35 @@ public class ExplorerSearch {
         // I STRONGLY RECOMMEND testing some helpers you might make too
         return -1;
     }
+    
+    public static List<int[]> possibleMoves(char[][] island, int[] current) {
+        int row = current[0], col = current[1];
+        int newRow, newCol;
+        List<int[]> possible = new ArrayList<>();
+
+        // up
+        newRow = row - 1; newCol = col;
+        if (newRow >= 0 && island[newRow][newCol] != 2 && island[newRow][newCol] != 3) {
+            possible.add(new int[]{newRow, newCol});
+        }
+        // down
+        newRow = row + 1; newCol = col;
+        if (newRow < island.length && island[newRow][newCol] != 2 && island[newRow][newCol] != 3) {
+            possible.add(new int[]{newRow, newCol});
+        }
+        // left
+        newRow = row; newCol = col - 1;
+        if (newCol >= 0 && island[newRow][newCol] != 2 && island[newRow][newCol] != 3) {
+            possible.add(new int[]{newRow, newCol});
+        }
+        // right
+        newRow = row; newCol = col + 1;
+        if (newCol < island[row].length && island[newRow][newCol] != 2 && island[newRow][newCol] != 3) {
+            possible.add(new int[]{newRow, newCol});
+        }
+
+        return possible;
+    }
 
     /**
      * Finds the explorer in a 2D array representing an island.
