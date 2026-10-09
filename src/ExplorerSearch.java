@@ -35,6 +35,21 @@ public class ExplorerSearch {
         return -1;
     }
 
+    private static int reachableArea(int[][] island, boolean[][] visited, int[] current) {
+        int row = current[0], col = current[1];
+        if (visited[row][col]) return 0;
+        visited[row][col] = true;
+
+        int total = 0;
+        List<int[]> neighbors = possibleMoves(island, current);
+
+        for (int[] neighbor : neighbors) {
+            total += reachableArea(island, visited, neighbor);
+        }
+
+        return total;
+    }
+
     /**
      * Finds all possible moves based on the current position provided.
      * 
