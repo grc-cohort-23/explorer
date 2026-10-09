@@ -34,4 +34,13 @@ public class ExplorerSearch {
         // I STRONGLY RECOMMEND testing some helpers you might make too
         return -1;
     }
+
+    public static int[] findExplorer(char[][] island) {
+        for (int y = 0; y < island.length; y++) {
+            for (int x = 0; x < island[y].length; x++) {
+                if (island[y][x] == 0) return new int[]{y,x};
+            }
+        }
+        throw new IllegalArgumentException("Explorer not found!");
+    }
 }
