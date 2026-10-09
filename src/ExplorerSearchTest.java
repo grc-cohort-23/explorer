@@ -77,6 +77,17 @@ public class ExplorerSearchTest {
         assertEquals(0, moves.size());
     }
 
+    @Test 
+    public void testCannotMove() {
+        int[][] island = {
+            {1,2,1},
+            {3,0,3},
+            {1,2,1}
+        };
+        int actual = ExplorerSearch.reachableArea(island);
+        assertEquals(1, actual);
+    }
+
     private Set<String> toSet(List<int[]> list) {
         Set<String> set = new HashSet<>();
         for (int[] arr : list) {
