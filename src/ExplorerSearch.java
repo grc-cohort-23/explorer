@@ -35,7 +35,14 @@ public class ExplorerSearch {
         return -1;
     }
 
-    public static int[] findExplorer(char[][] island) {
+    /**
+     * Finds the explorer in a 2D array representing an island.
+     * 
+     * @param island 2D integer array representing an island.
+     * @return An int array containing the (y,x) position of the explorer.
+     * @throws IllegalArgumentException If explorer is not found on the island.
+     */
+    public static int[] findExplorer(int[][] island) {
         for (int y = 0; y < island.length; y++) {
             for (int x = 0; x < island[y].length; x++) {
                 if (island[y][x] == 0) return new int[]{y,x};
