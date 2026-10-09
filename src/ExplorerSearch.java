@@ -40,10 +40,10 @@ public class ExplorerSearch {
      * 
      * @param island 2D integer array representing an island
      * @param current Current position being evaluated.
-     * @return possible, a List containing (y,x) positions of possible moves that can be made 
+     * @return possible, a Set containing (y,x) positions of possible moves that can be made 
      *         based on the current position.
      */
-    public static List<int[]> possibleMoves(char[][] island, int[] current) {
+    public static List<int[]> possibleMoves(int[][] island, int[] current) {
         int row = current[0], col = current[1];
         int newRow, newCol;
         List<int[]> possible = new ArrayList<>();

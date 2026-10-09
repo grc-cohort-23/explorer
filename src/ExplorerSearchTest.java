@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.List;
 
 public class ExplorerSearchTest {
     @Test
@@ -41,5 +44,31 @@ public class ExplorerSearchTest {
         } catch (IllegalArgumentException exception) {
             assertEquals("Explorer not found!", exception.getMessage());
         }
+    }
+
+    @Test
+    public void testPossibleMovesAllDirectionsFree() {
+        int[][] island = {
+            {1,1,1},
+            {1,0,1},
+            {1,1,1}
+        };
+        int[] pos = {1,1};
+        List<int[]> moves = ExplorerSearch.possibleMoves(island, pos);
+        Set<String> movesStrings = toSet(moves);
+
+        assertEquals(4, moves.size());
+        assertTrue(movesStrings.contains("0,1"));
+        assertTrue(movesStrings.contains("1,0"));
+        assertTrue(movesStrings.contains("2,1"));
+        assertTrue(movesStrings.contains("1,2"));
+    }
+
+    private Set<String> toSet(List<int[]> list) {
+        Set<String> set = new HashSet<>();
+        for (int[] arr : list) {
+            set.add(arr[0] + "," + arr[1]);
+        }
+        return set;
     }
 }
